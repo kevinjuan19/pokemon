@@ -50,6 +50,11 @@ function Pokemons() {
   });
 
   //   console.log({ data });
+  const pilihPokemon = (name, gbr) => {
+    setNama(name);
+    setGambar(gbr);
+    localStorage.setItem("enemy-pokemon", name);
+  };
 
   return (
     <>
@@ -69,8 +74,9 @@ function Pokemons() {
                   <Image url={el.imageUrl} />
                   <Button
                     terpilih={() => {
-                      setNama(el.name);
-                      setGambar(el.imageUrl);
+                      pilihPokemon(el.name, el.imageUrl);
+                      // setNama(el.name);
+                      // setGambar(el.imageUrl);
                     }}
                     kalimat="Pilih Pokemon"
                   />

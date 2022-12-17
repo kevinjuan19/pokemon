@@ -53,6 +53,12 @@ const Page = () => {
       return prev + 1;
     });
   };
+
+  const pilihPokemon = (name, gbr) => {
+    setNama(name);
+    setGambar(gbr);
+    localStorage.setItem("my-pokemon", name);
+  };
   return (
     <>
       <Pilih>
@@ -73,8 +79,9 @@ const Page = () => {
               <Image url={el.imageUrl} />
               <Button
                 terpilih={() => {
-                  setNama(el.name);
-                  setGambar(el.imageUrl);
+                  pilihPokemon(el.name, el.imageUrl);
+                  // setNama(el.name);
+                  // setGambar(el.imageUrl);
                 }}
                 kalimat="Pilih Pokemon"
               />
