@@ -7,7 +7,7 @@ import {
   Paragraf,
   ListItem,
 } from "../component/Other";
-import { dataPokemon } from "../data";
+// import { dataPokemon } from "../data";
 import { useState, useEffect } from "react";
 // import Data from './data';
 const Page = () => {

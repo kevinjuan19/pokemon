@@ -15,7 +15,7 @@ function Fight() {
     } else if (myPokemonHealth <= 0) {
       alert(`${enemyPokemon} menang`);
     }
-  }, [enemyPokemonHealth, myPokemonHealth]);
+  }, [enemyPokemonHealth, myPokemonHealth, enemyPokemon, myPokemon]);
 
   const handleFight = async () => {
     const req = await fetch("https://kobarsept.com/api/fight", {

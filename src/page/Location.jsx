@@ -1,13 +1,7 @@
 import { Pilih } from "../component/Chosen";
 import { ListPokemon } from "../component/PokemonList";
-import {
-  Button,
-  Image,
-  Terpilih,
-  Paragraf,
-  ListItem,
-} from "../component/Other";
-import { dataPokemon } from "../data";
+import { Button, Paragraf, ListItem } from "../component/Other";
+// import { dataPokemon } from "../data";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // import Data from './data';
