@@ -1,10 +1,10 @@
-export const Button = ({ terpilih }) => {
+export const Button = ({ terpilih, kalimat }) => {
   return (
     <button
       className="rounded bg-indigo-500 text-white p-4 w-full"
       onClick={terpilih}
     >
-      Pilih pokemon
+      {kalimat}
     </button>
   );
 };

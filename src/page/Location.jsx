@@ -9,19 +9,19 @@ import {
 } from "../component/Other";
 import { dataPokemon } from "../data";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import Data from './data';
-const Page = () => {
+const Location = () => {
   const [data, setData] = useState([]);
   const [nama, setNama] = useState("bulbasaur");
-  const [gambar, setGambar] = useState(
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
-  );
   const [next, setNext] = useState(1);
+
+  const navigate = useNavigate();
 
   const fetchData = async (page) => {
     const offset = (page - 1) * 20;
     const req = await fetch(
-      `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`
+      `https://pokeapi.co/api/v2/location-area?offset=${offset}&limit=20`
     );
     const res = await req.json();
     const pokemonList = res.results.map(async (el) => {
@@ -41,7 +41,6 @@ const Page = () => {
   const pokemons = data.map((el) => {
     return {
       name: el.name,
-      imageUrl: el.sprites.other.dream_world.front_default,
     };
   });
   // useEffect(() => {
@@ -56,7 +55,6 @@ const Page = () => {
   return (
     <>
       <Pilih>
-        <Terpilih url={gambar} />
         <Paragraf kalimat={nama} />
       </Pilih>
       <button
@@ -66,17 +64,16 @@ const Page = () => {
         Next
       </button>
       <ListPokemon>
-        {pokemons.map((el) => {
+        {pokemons.map((el, i) => {
           return (
             <ListItem key={el.name}>
               <Paragraf kalimat={el.name} />
-              <Image url={el.imageUrl} />
               <Button
                 terpilih={() => {
                   setNama(el.name);
-                  setGambar(el.imageUrl);
+                  navigate(`/location/${i + 1}`);
                 }}
-                kalimat="Pilih Pokemon"
+                kalimat="Pilih Location"
               />
             </ListItem>
           );
@@ -86,4 +83,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Location;
